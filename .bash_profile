@@ -1,3 +1,9 @@
+# Pyenv Configuration
+eval "$(pyenv init -)"
+
+# Add MySQL and MAMPP to path
+export PATH=$PATH:/Applications/MAMP/Library/bin
+
 # Add `~/bin` to the `$PATH`
 export PATH="$HOME/bin:$PATH";
 

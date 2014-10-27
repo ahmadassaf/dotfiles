@@ -1,5 +1,5 @@
 # Make vim the default editor
-export EDITOR="vim";
+export EDITOR="sublime";
 
 # Larger bash history (allow 32³ entries; default is 500)
 export HISTSIZE=32768;
@@ -23,3 +23,9 @@ export GREP_OPTIONS="--color=auto";
 
 # Link Homebrew casks in `/Applications` rather than `~/Applications`
 export HOMEBREW_CASK_OPTS="--appdir=/Applications";
+
+# Linking Pyenv
+export PYENV_ROOT=/usr/local/opt/pyenv
+
+# Setting Node Modules location
+export NODE_PATH="/usr/local/lib/node_modules"

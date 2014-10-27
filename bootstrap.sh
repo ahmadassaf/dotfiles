@@ -1,12 +1,11 @@
 #!/usr/bin/env bash
 
+# Install Homebrew
+ruby -e "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/master/install)"
+
 cd "$(dirname "${BASH_SOURCE}")";
 
-<<<<<<< HEAD
 git pull upstream master;
-=======
-git pull origin master;
->>>>>>> 6d4f94df9072221e7d3091d65a140ac2597975c6
 
 function doIt() {
 	rsync --exclude ".git/" --exclude ".DS_Store" --exclude "bootstrap.sh" \
@@ -24,8 +23,6 @@ else
 	fi;
 fi;
 unset doIt;
-<<<<<<< HEAD
 
 git push github master;
-=======
->>>>>>> 6d4f94df9072221e7d3091d65a140ac2597975c6
+
