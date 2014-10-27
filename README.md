@@ -1,4 +1,4 @@
-configurations
+Configurations
 ==============
 
-My Machine's Custom Configuration
+This repository contains my Machine's Custom Configuration (dotfiles, gitignore and UI elements)
