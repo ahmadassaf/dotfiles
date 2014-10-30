@@ -71,7 +71,7 @@ When setting up a new Mac, you may want to set some sensible OS X defaults:
 ### Install Homebrew formulae
 
 When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course). 
-`brew bundle` has been deprecated, this i converted the files into executable shell ones:
+`brew bundle` has been deprecated, thus i converted the files into executable shell ones:
 
 ```bash
 brew install ~/.brewfile.sh
