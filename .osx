@@ -682,7 +682,7 @@ defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false
 # Install Sublime Text settings
 ln -s ~/Dropbox/Apps/Sublime\ Text\ 3/ ~/Library/Application\ Support/Sublime\ Text\ 3/
 # Add the Ubersicht Widgets
-ln -s ~/Projects/Configurations/Dotfiles/widgets/ ~/Library/Application\ Support/Übersicht/widgets
+ln -s ~/Projects/Configurations/config/widgets/ ~/Library/Application\ Support/Übersicht/widgets
 
 ###############################################################################
 # Transmission.app                                                            #
