@@ -14,3 +14,10 @@ Thumbs.db
 .Trashes
 
 # remove a set of file that we do not need from this repo and are replaced by bash_it
+.bash_profile
+.bash_prompt
+.exports
+.extra
+.functions
+.aliases
+brew.sh
