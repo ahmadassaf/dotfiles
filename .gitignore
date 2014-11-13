@@ -12,3 +12,5 @@ Thumbs.db
 # Files that might appear on external disks
 .Spotlight-V100
 .Trashes
+
+# remove a set of file that we do not need from this repo and are replaced by bash_it
