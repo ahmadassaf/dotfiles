@@ -1,64 +1,123 @@
-## Installation
+## What are Dotfiles?
 
-### Using Git and the bootstrap script
+If you're not familiar with the concept of dotfiles, check out Github's dotfiles page to learn more about them. Essentially, when someone says "dotfiles" they mean maintaining your command-line preferences in a Git repository (sort of like how I use Dropbox to manage my preference files for TextExpander, etc.) that you install on every computer.
 
-You can clone the repository wherever you want. (I like to keep it in `~/Projects/dotfiles`, with `~/dotfiles` as a symlink.) The bootstrapper script will pull in the latest version and copy the files to your home folder.
+The name dotfiles refers to the fact that most of the files that perform this sort of configuration start with a dot. The Zsh configuration file, for example, is `.zshrc` The SSH configuration folder is `.ssh` And so on. So the concept of "dotfiles" just means "versioning your configuration files."
 
-```bash
-git clone https://github.com/mathiasbynens/dotfiles.git && cd dotfiles && source bootstrap.sh
+Your dotfiles will help you create powerful and consistent shell shortcuts and functions, settings for your editors, color coding and layouts for your shell, preferences and authentication for ssh and mysql and other protocols, and more.
+
+## Superhero Dotfiles and Their Super Powers
+
+Dotfiles are split into two main types. Those that contain a set of commands and only run once, .osx for example runs a list of commands and gives OS X super powers. Other files such as .bash_profile and .bashrc run each time you open a new Terminal session and gives your Terminal super powers.
+
+Here's a run down of the dotfiles in my repo and a description of what they can do.
+
+### .bash_profile / .bashrc
+
+When you open a new Terminal session, this file is loaded by Bash. It loads in the other dotfiles `path,bash_prompt,exports,aliases,functions,extra` and configures some useful settings such as auto correcting typos when using cd completion.
+
+In some instances `.bashrc` can be loaded, so this file makes sure that .bash_profile is called.
+
+### .path
+
+This file speeds up the process of running executable files. Rather than having to cd back and forth across various paths to executable files, you can set the file paths in your .path dotilfe and then run executable files directly.
+
+Generally, this file isn't held in the public repo as it can contain sensitive information.
+
+Here’s an example `~/.path` file that adds `~/utils` to the `$PATH:
+export PATH="$HOME/utils:$PATH"``
+
+### .bash_prompt
+
+Using this file you can customise and set the various colors of your Bash prompt.
+
+### .exports
+
+Sets environment variables, such as setting Vim as the default editor using export `EDITOR="sublime"` It also increases the amount of history saved, useful for backtracking over previous commands you've used.
+
+### .aliases
+
+This file contains useful aliases to help you write less. For example, instead of typing `cd ..` you can set it here to be '..'. Starting to like these files yet?
+
+### .functions
+
+Similar to aliases, except functions can take arguments.
+
+Before when I mentioned I was looking over different dotfile repos, I did mkdir to create a directory. After that, I'd then need to cd into that directory.
+
+### .gitconfig
+
+This file is only used by Git, for example, when a git command is invoked. So although there's an `.aliases` file, those aliases are run directly.
+
+### .gitignore
+
+Set files that you'd like Git to ignore on the entire system. Yay, no more `.DS_Store` being accidentally committed!
+
+### .gvimrc
+
+A small file that improves readability for gvim.
+
+### .hgignore
+
+Simliar to .gitignore for Mercurial.
+
+### .hushlogin
+
+In some instances, for example, when you ssh into a machine, you may be presented with a message. It might look something like this:
+
+```                                   _
+                                  | |
+ _ __ ___  _   _    ___ ___   ___ | |  ___  ___ _ ____   _____ _ __
+| '_ ` _ \| | | |  / __/ _ \ / _ \| | / __|/ _ \ '__\ \ / / _ \ '__|
+| | | | | | |_| | | (_| (_) | (_) | | \__ \  __/ |   \ V /  __/ |
+|_| |_| |_|\__, |  \___\___/ \___/|_| |___/\___|_|    \_/ \___|_|
+            __/ |
+           |___/
+Welcome to my cool server.
+Any malicious and/or unauthorized activity is strictly forbidden.
+All activity may be logged.
 ```
 
-To update, `cd` into your local `dotfiles` repository and then:
+This file prevents this from being shown.
 
-```bash
-source bootstrap.sh
-```
+### .inputrc
 
-Alternatively, to update while avoiding the confirmation prompt:
+Configures the 'Readline environment'. This controls the way keys work when you're entering a command into your shell.
+An example of how I find this useful is to make tab autocomplete regardless of filename case:
 
-```bash
-set -- -f; source bootstrap.sh
-```
+`set completion-ignore-case on`
 
-### Git-free install
+### .osx
 
-To install these dotfiles without Git:
+This is my favorite of all the dotfiles. It is run once, manually, for the commands to run and take effect. Depending on what you've added to this file, you may need to restart your machine.
 
-```bash
-cd; curl -#L https://github.com/mathiasbynens/dotfiles/tarball/master | tar -xzv --strip-components 1 --exclude={README.md,bootstrap.sh,LICENSE-MIT.txt}
-```
+Some of the awesome things I love are:
 
-To update later on, just run that command again.
+- Disable the “Are you sure you want to open this application?” dialog
+- Check for software updates daily, not just once per week
+- Disable Notification Center and remove the menu bar icon
+- Enable access for assistive devices
+- Set a blazingly fast keyboard repeat rate
+- Finder: allow quitting via `⌘ + Q` doing so will also hide desktop icons
+- When performing a search, search the current folder by default
+- Speed up Mission Control animations
 
-### Specify the `$PATH`
+### .screenrc
 
-If `~/.path` exists, it will be sourced along with the other files, before any feature testing (such as [detecting which version of `ls` is being used](https://github.com/mathiasbynens/dotfiles/blob/aff769fd75225d8f2e481185a71d5e05b76002dc/.aliases#L21-26)) takes place.
+If you use screen, this removes the startup message.
 
-Here’s an example `~/.path` file that adds `~/utils` to the `$PATH`:
+### .vimrc
 
-```bash
-export PATH="$HOME/utils:$PATH"
-```
+I'm not that familiar with vim. However some of the things you can do with this file include enabling line numbers and adding syntax highlighting.
 
-### Add custom commands without creating a new fork
+### .wgetrc
 
-If `~/.extra` exists, it will be sourced along with the other files. You can use this to add a few custom commands without the need to fork this entire repository, or to add commands you don’t want to commit to a public repository.
+If you use wget, this adds additional settings such as changing the timeout to 60 seconds rather than the default 15 minutes. It also sets the retry to three, rather than the default 20!
 
-My `~/.extra` looks something like this:
+## Getting Started
 
-```bash
-# Git credentials
-# Not in the repository, to prevent people from accidentally committing under my name
-
-GIT_AUTHOR_NAME="Ahmad Assaf"
-GIT_COMMITTER_NAME="$GIT_AUTHOR_NAME"
-git config --global user.name "$GIT_AUTHOR_NAME"
-GIT_AUTHOR_EMAIL="ahmad.a.assaf@gmail.com"
-GIT_COMMITTER_EMAIL="$GIT_AUTHOR_EMAIL"
-git config --global user.email "$GIT_AUTHOR_EMAIL"
-```
-
-You could also use `~/.extra` to override settings, functions and aliases from my dotfiles repository. It’s probably better to [fork this repository](https://github.com/mathiasbynens/dotfiles/fork) instead, though.
+If you notice, some files that have mentioned above don't exist in this repo. This is because i am using the amazing [bash-it](http://github.com/ahmadassaf/bash-it) repo to organize those dotfiles. 
+I recommend you head overthere and read how to use them.d
 
 ### Sensible OS X defaults
 
@@ -87,6 +146,7 @@ brew install ~/.caskfile.sh
 
 ## Thanks to…
 
+* [Setting Up a Mac Dev Machine From Zero to Hero With Dotfiles](http://code.tutsplus.com/tutorials/setting-up-a-mac-dev-machine-from-zero-to-hero-with-dotfiles--net-35449)
 * [@Mathias Bynens](http://twitter.com/mathias) and his [dotfiles repository](https://github.com/mathiasbynens/dotfiles)
 * @ptb and [his _OS X Lion Setup_ repository](https://github.com/ptb/Mac-OS-X-Lion-Setup)
 * [Ben Alman](http://benalman.com/) and his [dotfiles repository](https://github.com/cowboy/dotfiles)
