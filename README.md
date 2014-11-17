@@ -119,6 +119,10 @@ If you use wget, this adds additional settings such as changing the timeout to 6
 If you notice, some files that have mentioned above don't exist in this repo. This is because i am using the amazing [bash-it](http://github.com/ahmadassaf/bash-it) repo to organize those dotfiles. 
 I recommend you head overthere and read how to use them.d
 
+## Installing the Scripts
+
+For installing the above files outside of the workflow mentioned in the [main configurations](http://github.com/ahmadassaf/configurations), you need to run the following command `sh install.sh`. The command will symlink all the files in this directory into your home directory, overwriting existing files.
+
 ### Sensible OS X defaults
 
 When setting up a new Mac, you may want to set some sensible OS X defaults:
