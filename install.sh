@@ -12,7 +12,7 @@ SOURCE_LOCATION="$SCRIPT_DIRECTORY" # Contains the files and directories I want 
 function linkDotFiles() {
 	# Link the files from source to the target with a dot appended to the front.
 	find $SOURCE_LOCATION -mindepth 1 -maxdepth 1 -name '.*'| while read file; do
-		if [ $(basename $file) != ".git" ]; then
+		if [ $(basename $file) != ".git" && $(basename $file) != ".gitignore" ]; then
   		if [[ -d ${HOME}/$(basename $file) ]]; then
   			echo "$(basename $file) is a driectory, removing a directory now .."
   			rm -r "${HOME}/$(basename $file)"

@@ -157,3 +157,6 @@
 [url "git://gist.github.com/"]
 
 	insteadOf = "gist:"
+[user]
+	name = Ahmad Assaf
+	email = ahmad.a.assaf@gmail.com
