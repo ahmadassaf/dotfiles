@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-# Pulling recent updates from the upstream and check for changes
-git pull upstream master;
-
 # Find the location of the script, this brings out the location of the current directory
 SCRIPT_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -12,7 +9,7 @@ SOURCE_LOCATION="$SCRIPT_DIRECTORY" # Contains the files and directories I want 
 function linkDotFiles() {
 	# Link the files from source to the target with a dot appended to the front.
 	find $SOURCE_LOCATION -mindepth 1 -maxdepth 1 -name '.*'| while read file; do
-		if [ $(basename $file) != ".git" && $(basename $file) != ".gitignore" ]; then
+		if [[ $(basename $file) != ".git" && $(basename $file) != ".gitignore" ]]; then
   		if [[ -d ${HOME}/$(basename $file) ]]; then
   			echo "$(basename $file) is a driectory, removing a directory now .."
   			rm -r "${HOME}/$(basename $file)"
@@ -36,7 +33,4 @@ else
 	fi;
 fi;
 unset linkDotFiles;
-
-# Push changes that we got from the upstream to my forket github repo
-git push github master;
 
