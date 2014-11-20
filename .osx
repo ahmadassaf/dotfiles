@@ -685,10 +685,18 @@ defaults write com.irradiatedsoftware.SizeUp ShowPrefsOnNextStart -bool false
 # Symlinking Stuff                                                               #
 ###############################################################################
 
-# Install Sublime Text settings
-ln -s ~/Dropbox/Apps/Sublime\ Text\ 3/ ~/Library/Application\ Support/Sublime\ Text\ 3/
-# Add the Ubersicht Widgets
-ln -s ~/Projects/Configurations/config/widgets/ ~/Library/Application\ Support/Übersicht/widgets
+read -p "This will link the SublimeText configurations from Dropbox to local installation [Must have SublimeText3 Installed]. Are you sure? [Y/N] " -n 1;
+echo "";
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+	# Install Sublime Text settings
+	ln -s ~/Dropbox/Apps/Sublime\ Text\ 3/ ~/Library/Application\ Support/Sublime\ Text\ 3/
+fi
+read -p "This will link the Ubersicht widgets from Dropbox to local installation [Must have Ubersicht Installed]. Are you sure? [Y/N] " -n 1;
+echo "";
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+	# Add the Ubersicht Widgets
+	ln -s ~/Projects/Configurations/config/widgets/ ~/Library/Application\ Support/Übersicht/widgets
+fi
 
 ###############################################################################
 # Transmission.app                                                            #

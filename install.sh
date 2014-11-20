@@ -1,11 +1,5 @@
 #!/usr/bin/env bash
 
-# Find the location of the script, this brings out the location of the current directory
-SCRIPT_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-# The source directory and target directories.
-SOURCE_LOCATION="$SCRIPT_DIRECTORY" # Contains the files and directories I want to work with.
-
 function linkDotFiles() {
 	# Link the files from source to the target with a dot appended to the front.
 	find $SOURCE_LOCATION -mindepth 1 -maxdepth 1 -name '.*'| while read file; do
