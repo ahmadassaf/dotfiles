@@ -5,12 +5,12 @@ if [[ ! "$(type -P brew)" ]]; then
 fi
 
 echo "Updating Homebrew"
-brew doctor
-brew update
+# brew doctor
+# brew update
 
 # Install Homebrew recipes.
 function brew_install_recipes() {
-  recipes=($(setdiff "${recipes[*]}" "$(brew list)"))
+  recipes=(setdiff "${recipes[*]}" "$(brew list)"))
   if (( ${#recipes[@]} > 0 )); then
     echo "Installing Homebrew recipes: ${recipes[*]}"
     for recipe in "${recipes[@]}"; do
@@ -78,28 +78,3 @@ recipes=(
 brew_install_recipes
 # Remove outdated versions from the cellar
 brew cleanup
-
-# Given strings containing space-delimited words A and B, "setdiff A B" will
-# return all words in A that do not exist in B. Arrays in bash are insane
-# (and not in a good way).
-# From http://stackoverflow.com/a/1617303/142339
-function setdiff() {
-  local debug skip a b
-  if [[ "$1" == 1 ]]; then debug=1; shift; fi
-  if [[ "$1" ]]; then
-    local setdiffA setdiffB setdiffC
-    setdiffA=($1); setdiffB=($2)
-  fi
-  setdiffC=()
-  for a in "${setdiffA[@]}"; do
-    skip=
-    for b in "${setdiffB[@]}"; do
-      [[ "$a" == "$b" ]] && skip=1 && break
-    done
-    [[ "$skip" ]] || setdiffC=("${setdiffC[@]}" "$a")
-  done
-  [[ "$debug" ]] && for a in setdiffA setdiffB setdiffC; do
-    echo "$a ($(eval echo "\${#$a[*]}")) $(eval echo "\${$a[*]}")" 1>&2
-  done
-  [[ "$1" ]] && echo "${setdiffC[@]}"
-}
