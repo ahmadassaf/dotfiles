@@ -25,28 +25,63 @@ brew cask info this-is-somewhat-annoying 2>/dev/null
 # Homebrew casks
 casks=(
   # Applications
+
+  # Utilities
+  path-finder
+  alfred
+  cakebrew
   a-better-finder-rename
-  bettertouchtool
-  charles
-  dropbox
   fastscripts
-  firefox
-  google-chrome
-  gyazo
-  hex-fiend
+  bettertouchtool
   iterm2
-  launchbar
-  macvim
-  spotify
-  steam
-  the-unarchiver
+  launchrocket
+  gyazo
+  ubersicht
+  dockmod
+  liteicon
+  cleanmymac
+  bartender
+  flexiglass
+  # Productivity
   todoist
+  evernote
+  mendeley-desktop
+  fantastical
+  slack
+  screenhero
+  # Development
+  sublime-text3
+  atom
+  sourcetree
+  github
+  brackets
+  coda
   tower
   transmission-remote-gui
+  macvim
+  sqlite-database-browser
+  lightpaper
+  codebox
+  anvil
+  hex-fiend
+  # Internet, Networking
+  firefox
+  google-chrome
+  charles
+  dropbox
+  google-drive
+  mailbox
+  viber
+  utorrent
+  plex-media-server
+  # Misc.
   vlc
-  sublime-text-3
   imagealpha
 	imageoptim
+  steam
+  the-unarchiver
+  spotify
+  handbrake
   # Quick Look plugins
   betterzipql
   qlcolorcode
