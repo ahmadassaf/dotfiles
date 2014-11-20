@@ -10,7 +10,7 @@ echo "Updating Homebrew"
 
 # Install Homebrew recipes.
 function brew_install_recipes() {
-  recipes=(setdiff "${recipes[*]}" "$(brew list)"))
+  recipes=setdiff "${recipes[*]}" "$(brew list)"
   if (( ${#recipes[@]} > 0 )); then
     echo "Installing Homebrew recipes: ${recipes[*]}"
     for recipe in "${recipes[@]}"; do
@@ -24,7 +24,6 @@ recipes=(
 	coreutils
 	moreutils
 	findutils
-	gnu-sed --default-names
   bash
   bash-completion
   cowsay
@@ -40,10 +39,8 @@ recipes=(
   ssh-copy-id
   the_silver_searcher
   tree
-  wget --enable-iri
   ringojs
 	narwhal
-	vim --override-system-vi
 	homebrew/dupes/grep
 	homebrew/dupes/screen
 	bfg
@@ -76,5 +73,10 @@ recipes=(
 
 # Start the actual installation of the recipes
 brew_install_recipes
+
+# install recipes with special arguments
+brew install gnu-sed --default-names
+brew install vim --override-system-vi
+brew install wget --enable-iri
 # Remove outdated versions from the cellar
 brew cleanup

@@ -3,7 +3,7 @@
 
 # Tap Homebrew kegs.
 function brew_tap_kegs() {
-  kegs=($(setdiff "${kegs[*]}" "$(brew tap)"))
+  kegs=setdiff "${kegs[*]}" "$(brew tap)"
   if (( ${#kegs[@]} > 0 )); then
     echo "Tapping Homebrew kegs: ${kegs[*]}"
     for keg in "${kegs[@]}"; do
@@ -104,7 +104,7 @@ casks=(
 )
 
 # Install Homebrew casks.
-casks=(setdiff "${casks[*]}" "$(brew cask list 2>/dev/null)"))
+casks=setdiff "${casks[*]}" "$(brew cask list 2>/dev/null)"
 if (( ${#casks[@]} > 0 )); then
   echo "Installing Homebrew casks: ${casks[*]}"
   for cask in "${casks[@]}"; do

@@ -746,15 +746,13 @@ defaults write com.twitter.twitter-mac HideInBackground -bool true
 # Custom Settings (Found: https://gist.github.com/brandonb927/3195465)
 ####################################################################################
 #
-echo "Add ability to toggle between Light and Dark mode in Yosemite using ctrl+opt+cmd+t? (y/n)"
+
 # http://www.reddit.com/r/apple/comments/2jr6s2/1010_i_found_a_way_to_dynamically_switch_between/
-read -r response
-case $response in
-  [yY])
-    sudo defaults write /Library/Preferences/.GlobalPreferences.plist _HIEnableThemeSwitchHotKey -bool true
-    break;;
-  *) break;;
-esac
+read -p "Add ability to toggle between Light and Dark mode in Yosemite using ctrl+opt+cmd+t. Are you sure? [Y/N] " -n 1;
+echo "";
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+	sudo defaults write /Library/Preferences/.GlobalPreferences.plist _HIEnableThemeSwitchHotKey -bool true
+fi
 
 ###############################################################################
 # Kill affected applications                                                  #
@@ -765,5 +763,6 @@ for app in "Activity Monitor" "Address Book" "Calendar" "Contacts" "cfprefsd" \
 	"Terminal" "Transmission" "Twitter" "iCal"; do
 	killall "${app}" > /dev/null 2>&1
 done
+
 echo "Done. Note that some of these changes require a logout/restart to take effect."
 

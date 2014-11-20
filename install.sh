@@ -2,7 +2,7 @@
 
 function linkDotFiles() {
 	# Link the files from source to the target with a dot appended to the front.
-	find $SOURCE_LOCATION -mindepth 1 -maxdepth 1 -name '.*'| while read file; do
+	find $SOURCE_LOCATION/dotfiles -mindepth 1 -maxdepth 1 -name '.*'| while read file; do
 		if [[ $(basename $file) != ".git" && $(basename $file) != ".gitignore" ]]; then
   		if [[ -d ${HOME}/$(basename $file) ]]; then
   			echo "${NC}$(basename $file)${NC} is a driectory, ${red}removing a directory now ..${NC}"
