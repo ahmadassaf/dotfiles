@@ -17,7 +17,12 @@ kegs=(caskroom/cask)
 brew_tap_kegs
 
 # Exit if, for some reason, cask is not installed.
-[[ ! "$(brew ls --versions brew-cask)" ]] && e_error "Brew-cask failed to install." && return 1
+if [[ ! "$(brew ls --versions brew-cask)" ]]; then
+  e_error "Brew-cask is not installed ..."
+  brew install caskroom/cask/brew-cask
+else
+  brew upgrade brew-cask
+fi
 
 # Hack to show the first-run brew-cask password prompt immediately.
 brew cask info this-is-somewhat-annoying 2>/dev/null
@@ -124,4 +129,6 @@ if (( ${#cps[@]} > 0 )); then
     cp -R "$target" ~/Library/ColorPickers/
   done
 fi
+
+brew cask cleanup
 
