@@ -130,3 +130,4 @@ if (( ${#cps[@]} > 0 )); then
     cp -R "$target" ~/Library/ColorPickers/
   done
 fi
+

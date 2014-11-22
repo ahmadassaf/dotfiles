@@ -128,6 +128,7 @@
 
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
+	tool = p4merge
 
 [push]
 
@@ -166,3 +167,6 @@
 [mergetool "sourcetree"]
 	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
 	trustExitCode = true
+[mergetool]
+	keepTemporaries = false
+	prompt = false
