@@ -69,7 +69,7 @@ casks=(
   codebox
   anvil
   hex-fiend
-  p4merge
+  ksdiff
   # Internet, Networking
   firefox
   google-chrome
