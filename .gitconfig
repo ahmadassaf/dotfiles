@@ -118,6 +118,7 @@
 
 	# Detect copies as well as renames
 	renames = copies
+	tool = Kaleidoscope
 
 [help]
 
@@ -128,7 +129,7 @@
 
 	# Include summaries of merged commits in newly created merge commit messages
 	log = true
-	tool = p4merge
+	tool = Kaleidoscope
 
 [push]
 
@@ -161,12 +162,13 @@
 [user]
 	name = Ahmad Assaf
 	email = ahmad.a.assaf@gmail.com
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
+[difftool "Kaleidoscope"]
+	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
+	prompt = false
+[mergetool "Kaleidoscope"]
+	cmd = /usr/local/bin/ksdiff --merge --output \"$MERGED\" --base \"$BASE\" -- \"$LOCAL\" --snapshot \"$REMOTE\" --snapshot
 	trustExitCode = true
 [mergetool]
 	keepTemporaries = false
 	prompt = false
+
