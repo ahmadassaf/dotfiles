@@ -21,55 +21,45 @@ function brew_install_recipes() {
 
 # Homebrew recipes
 recipes=(
+	# Core Modules
 	coreutils
 	moreutils
 	findutils
+	binutils
+	# Bash, Bash plugins
   bash
   bash-completion
-  cowsay
+  zsh
+  # Development
   git
+  heroku
+  node
+  mercurial
+  # Git speific addons
   git-extras
-  htop-osx
   hub
+  bfg
+  # Utilities
+  htop-osx
   id3tool
   lesspipe
-  man2html
-  mercurial
-  sl
   ssh-copy-id
   the_silver_searcher
   tree
-  ringojs
-	narwhal
+  fcrackzip
+  foremost
+  ack
+  p7zip
+  pigz
+  pv
+	# Network tools
+	dns2tcp
+	knock
+	rename
+	webkit2png
+	# Dupes (https://github.com/Homebrew/homebrew-dupes)
 	homebrew/dupes/grep
 	homebrew/dupes/screen
-	bfg
-	binutils
-	binwalk
-	cifer
-	dex2jar
-	dns2tcp
-	fcrackzip
-	foremost
-	hashpump
-	hydra
-	john
-	knock
-	pngcheck
-	sqlmap
-	xz
-	ack
-	lynx
-	node
-	p7zip
-	pigz
-	pv
-	rename
-	rhino
-	webkit2png
-	zopfli
-	heroku
-	zsh
 )
 
 # Start the actual installation of the recipes
