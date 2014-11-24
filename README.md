@@ -140,6 +140,8 @@ When setting up a new Mac, you may want to install some common [Homebrew](http:/
 brew install ~/.brewfile.sh
 ```
 
+you can always remove or add files based on yor preferences. You can search for brew formulas [here](http://brewformulas.org/) in order to add or get more information about the ones I am using.
+
 ### Install native apps with `brew cask`
 
 You could also install native apps with [`brew cask`](https://github.com/phinze/homebrew-cask):
@@ -147,6 +149,8 @@ You could also install native apps with [`brew cask`](https://github.com/phinze/
 ```bash
 brew install ~/.caskfile.sh
 ```
+
+you can always remove or add files based on yor preferences. You can search for cask formulas [here](http://caskroom.io/) in order to add or get more information about the ones I am using.
 
 ## Thanks to…
 
