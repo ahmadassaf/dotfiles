@@ -5,8 +5,8 @@ if [[ ! "$(type -P brew)" ]]; then
 fi
 
 echo "Updating Homebrew"
-# brew doctor
-# brew update
+brew doctor
+brew update
 
 # Install Homebrew recipes.
 function brew_install_recipes() {
@@ -69,6 +69,7 @@ recipes=(
 	webkit2png
 	zopfli
 	heroku
+	zsh
 )
 
 # Start the actual installation of the recipes
