@@ -343,6 +343,20 @@ defaults write com.apple.finder FXInfoPanesExpanded -dict \
 	OpenWith -bool true \
 	Privileges -bool true
 
+# Hide the alias arrow icon
+read -p "Disable the Alias/Shortcut arrow on icons. Are you sure? (y/n) " -n 1;
+echo "";
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+	if [[ -f "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/AliasBadgeIcon.icns" ]]; then
+		mv "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/AliasBadgeIcon.icns" "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/AliasBadgeIcon_OFF.icns"
+	else
+		echo "Alias icon already removed"
+	fi
+fi;
+
+# put back the alias shortcut icon
+# mv "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/AliasBadgeIcon_OFF.icns" "/System/Library/CoreServices/CoreTypes.bundle/Contents/Resources/AliasBadgeIcon.icns"
+
 ###############################################################################
 # Dock, Dashboard, and hot corners                                            #
 ###############################################################################
