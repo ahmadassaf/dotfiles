@@ -30,6 +30,7 @@ recipes=(
   bash
   bash-completion
   zsh
+  grc
   # Development
   git
   heroku
