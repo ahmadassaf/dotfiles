@@ -2,6 +2,7 @@
 set background=dark
 colorscheme monokai
 
+" enabling powerline for vim
 set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
 
 " These lines setup the environment to show graphics and colors correctly.

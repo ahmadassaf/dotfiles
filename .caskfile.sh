@@ -45,7 +45,6 @@ casks=(
   cleanmymac
   bartender
   flexiglass
-  xquartz
   # Productivity
   todoist
   evernote

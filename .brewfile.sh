@@ -70,6 +70,5 @@ brew_install_recipes
 brew install gnu-sed --default-names
 brew install vim --override-system-vi
 brew install wget --enable-iri
-brew install fontforge --with-python
 # Remove outdated versions from the cellar
 brew cleanup
