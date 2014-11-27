@@ -152,10 +152,15 @@ brew install ~/.caskfile.sh
 
 you can always remove or add files based on yor preferences. You can search for cask formulas [here](http://caskroom.io/) in order to add or get more information about the ones I am using.
 
-## Thanks to…
+## References
+
+### Tutorials
 
 * [Execution sequence for .bash_profile, .bashrc, .bash_login, .profile and .bash_logout](http://www.thegeekstuff.com/2008/10/execution-sequence-for-bash_profile-bashrc-bash_login-profile-and-bash_logout/) 
 [Setting Up a Mac Dev Machine From Zero to Hero With Dotfiles](http://code.tutsplus.com/tutorials/setting-up-a-mac-dev-machine-from-zero-to-hero-with-dotfiles--net-35449)
+
+### Other `dotfiles` repositories
+
 * [@Mathias Bynens](http://twitter.com/mathias) and his [dotfiles repository](https://github.com/mathiasbynens/dotfiles)
 * @ptb and [his _OS X Lion Setup_ repository](https://github.com/ptb/Mac-OS-X-Lion-Setup)
 * [Ben Alman](http://benalman.com/) and his [dotfiles repository](https://github.com/cowboy/dotfiles)
@@ -170,3 +175,6 @@ you can always remove or add files based on yor preferences. You can search for 
 * [Tom Ryder](http://blog.sanctum.geek.nz/) and his [dotfiles repository](https://github.com/tejr/dotfiles)
 * [Kevin Suttle](http://kevinsuttle.com/) and his [dotfiles repository](https://github.com/kevinSuttle/dotfiles) and [OSXDefaults project](https://github.com/kevinSuttle/OSXDefaults), which aims to provide better documentation for [`~/.osx`](https://mths.be/osx)
 * [Haralan Dobrev](http://hkdobrev.com/)
+* [Zach Holman dotfiles](https://github.com/holman/dotfiles)
+* [YADR](http://skwp.github.io/dotfiles/) YADR is an opinionated dotfile repo that will make your heart sing
+* [Eduardo Lundgren dotfiles](https://github.com/eduardolundgren/dotfiles) which claims to be the first JavaScript-based dotfiles powered by Grunt.
