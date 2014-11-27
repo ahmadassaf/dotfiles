@@ -68,6 +68,8 @@ casks=(
   anvil
   hex-fiend
   ksdiff
+  codekit
+  mamp
   # Internet, Networking
   firefox
   google-chrome
