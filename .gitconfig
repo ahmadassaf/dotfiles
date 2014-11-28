@@ -99,7 +99,7 @@
 
 	current = yellow reverse
 	local = yellow
-	remote = green
+	remote = magenta
 
 [color "diff"]
 
@@ -111,7 +111,7 @@
 [color "status"]
 
 	added = yellow
-	changed = green
+	changed = magenta
 	untracked = cyan
 
 [diff]

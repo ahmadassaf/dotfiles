@@ -20,11 +20,34 @@ function linkDotFiles() {
 if [ "$1" == "--force" -o "$1" == "-f" ]; then
 	linkDotFiles;
 else
-	read -p "This may overwrite existing files in your home directory. Are you sure? (y/n) " -n 1;
+	read -p "This may overwrite existing files in your home directory. Are you sure? [Y/N] " -n 1;
 	echo "";
 	if [[ $REPLY =~ ^[Yy]$ ]]; then
 		linkDotFiles;
 	fi;
 fi;
 unset linkDotFiles;
+
+if [[ ! -e ${HOME}/.dircolors ]]; then
+	# Prompt the user if he wishes to have dircolors enabled
+	echo "${magenta}\nDircolors${NC} helps applying different colors for file groups when executing ${red}ls${NC}\n"
+	read -p "This will enable dircolors. Are you sure? [Y/N]" -n 1;
+	echo "";
+	if [[ $REPLY =~ ^[Yy]$ ]]; then
+		ln -s "$SOURCE_LOCATION/dotfiles/dircolors/LS_COLORS" "${HOME}/.dircolors"
+
+		# Adding needed configurations to appearance.bash in bash-it
+		echo "Applying needed patched to ${red}appearance.bash${NC}"
+		echo "\n\n# Adding needed files for dircoloring
+export PATH=\"/usr/local/opt/coreutils/libexec/gnubin:\$PATH\"
+export MANPATH=\"/usr/local/opt/coreutils/libexec/gnuman:\$MANPATH\"
+# Enabling dircolors coloring
+eval \`gdircolors -b ~/.dircolors\`" >> "${HOME}/.bash_it/lib/appearance.bash"
+
+		# Adding needed configurations to theme-and-appearance in oh-my-zsh
+		echo "Applying needed patched to ${red}theme-and-appearance.zsh${NC}"
+		echo "\n\n# Enabling dircolors coloring
+eval \`gdircolors -b ~/.dircolors\`" >> "${HOME}/.oh-my-zsh/lib/theme-and-appearance.zsh"
+	fi;
+fi
 
