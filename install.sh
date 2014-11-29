@@ -51,3 +51,17 @@ eval \`gdircolors -b ~/.dircolors\`" >> "${HOME}/.oh-my-zsh/lib/theme-and-appear
 	fi;
 fi
 
+	read -p "This will install [grc] coloring to the terminal. Are you sure? [Y/N] " -n 1;
+	echo "";
+	if [[ $REPLY =~ ^[Yy]$ ]]; then
+				# Adding needed configurations to appearance.bash in bash-it
+		echo "Applying needed patched to ${red}appearance.bash${NC}"
+		echo "\n\n# If we have grc enabled this is used to add coloring to various commands
+source "`brew --prefix grc`/etc/grc.bashrc""
+
+		# Adding needed configurations to theme-and-appearance in oh-my-zsh
+		echo "Applying needed patched to ${red}theme-and-appearance.zsh${NC}"
+		echo "\n\n# If we have grc enabled this is used to add coloring to various commands
+source "`brew --prefix grc`/etc/grc.bashrc""
+	fi;
+

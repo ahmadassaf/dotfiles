@@ -110,6 +110,22 @@ If you use screen, this removes the startup message.
 
 I'm not that familiar with vim. However some of the things you can do with this file include enabling line numbers and adding syntax highlighting.
 
+For `vim` i have also included the [powerline](https://github.com/Lokaltog/powerline) visual styling which will include a status line.
+
+**Important Notes** 
+
+- I haven't included `powerline` in my main installation script, so if you wish to have it, then please proceed with installing it separately with the fonts dependency.
+- The `--user` parameter should be removed if you got an error while installation especially if you have python installed via Homebrew.
+- A dependency is the [powerline fonts](https://github.com/ahmadassaf/powerline-fonts) pack. Installation instructions can be found directly in the repository.
+
+after installing powerline enable it by adding to the `.vimrc`:
+
+```shell
+set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
+```
+ 
+This can be change **depending on the path to the `python` directory**
+
 ### .wgetrc
 
 If you use wget, this adds additional settings such as changing the timeout to 60 seconds rather than the default 15 minutes. It also sets the retry to three, rather than the default 20!
