@@ -178,3 +178,7 @@ precomposeunicode = false
 	keepTemporaries = false
 	prompt = false
 
+[filter "media"]
+	clean = git media clean %f
+	smudge = git media smudge %f
+	required = true
