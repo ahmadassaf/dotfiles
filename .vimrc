@@ -3,15 +3,16 @@ set background=dark
 colorscheme monokai
 
 " enabling powerline for vim
-set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
+" set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
 
 " These lines setup the environment to show graphics and colors correctly.
 set nocompatible
 
 let g:minBufExplForceSyntaxEnable = 1
-python from powerline.vim import setup as powerline_setup
-python powerline_setup()
-python del powerline_setup
+
+" python from powerline.vim import setup as powerline_setup
+" python powerline_setup()
+" python del powerline_setup
 
 if ! has('gui_running')
    set ttimeoutlen=10
