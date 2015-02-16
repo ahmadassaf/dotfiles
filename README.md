@@ -158,6 +158,16 @@ brew install ~/.brewfile.sh
 
 you can always remove or add files based on yor preferences. You can search for brew formulas [here](http://brewformulas.org/) in order to add or get more information about the ones I am using.
 
+My file contains the following `brew` formulas:
+
++ **Core Modules** coreutils, moreutils, findutils, binutils
++ **Bash, Bash plugins** bash, bash-completion, zsh, grc
++ **Development** git, heroku, node, mercurial, iojs
++ **Git speific addons** git-extras, hub, bfg
++ **Utilities** htop-osx, id3tool, lesspipe, ssh-copy-id, the_silver_searcher, tree, fcrackzip, foremost, ack, p7zip, pigz, pv, gnu-sed, vim, wget
++ **Network tools** dns2tcp, knock, rename, webkit2png
++ **[Dupes](https://github.com/Homebrew/homebrew-dupes)** grep, screen
+    
 ### Install native apps with `brew cask`
 
 You could also install native apps with [`brew cask`](https://github.com/phinze/homebrew-cask):
@@ -167,6 +177,17 @@ brew install ~/.caskfile.sh
 ```
 
 you can always remove or add files based on yor preferences. You can search for cask formulas [here](http://caskroom.io/) in order to add or get more information about the ones I am using.
+
+My `cask` file contains the following applications:
+
++ **Utilities** path-finder, alfred, cakebrew, a-better-finder-rename, fastscripts, bettertouchtool, iterm2, launchrocket, gyazo, ubersicht, dockmod, liteicon, cleanmymac, bartender, flexiglass
++ **Productivity** todoist, evernote, mendeley-desktop, fantastical, slack, screenhero
++ **Development** sublime-text3, atom, sourcetree, github, brackets, coda, tower, transmission-remote-gui, macvim, sqlite-database-browser, lightpaper, 
++ codebox, anvil, hex-fiend, ksdiff, codekit, MAMP
++ **Internet, Networking** firefox, google-chrome, charles, dropbox, google-drive, mailbox, viber, utorrent, plex-media-server
++ **Misc** vlc, imagealpha, imageoptim, steam, the-unarchiver, spotify, handbrake
++ **Quick Look plugins** betterzipql, qlcolorcode, qlmarkdown, qlprettypatch, qlstephen, quicklook-csv, quicklook-json, quicknfo, suspicious-package, webp-quicklook
++ **Color pickers** colorpicker-developer, colorpicker-skalacolo 
 
 ## References
 
