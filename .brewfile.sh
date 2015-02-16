@@ -36,6 +36,7 @@ recipes=(
   heroku
   node
   mercurial
+  iojs
   # Git speific addons
   git-extras
   hub
