@@ -17,5 +17,10 @@ Thumbs.db
 ._*
 Desktop.ini
 
+# Sublime Text files #
+######################
+*.sublime-workspace
+*.sublime-project
+
 # from sublime text editor
 package.sublime-workspace
