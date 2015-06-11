@@ -54,6 +54,7 @@ recipes=(
   p7zip
   pigz
   pv
+  tmux
 	# Network tools
 	dns2tcp
 	knock
