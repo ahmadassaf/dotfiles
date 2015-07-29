@@ -15,10 +15,7 @@ globals=(
   imageoptim
   jscs
   mocha
-  mongoose
-  node
   nodemon
-  npm
   prettyjson
   psi
   should

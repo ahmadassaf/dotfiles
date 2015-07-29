@@ -112,7 +112,7 @@ I'm not that familiar with vim. However some of the things you can do with this 
 
 For `vim` i have also included the [powerline](https://github.com/Lokaltog/powerline) visual styling which will include a status line.
 
-**Important Notes** 
+**Important Notes**
 
 - I haven't included `powerline` in my main installation script, so if you wish to have it, then please proceed with installing it separately with the fonts dependency.
 - The `--user` parameter should be removed if you got an error while installation especially if you have python installed via Homebrew.
@@ -123,7 +123,7 @@ after installing powerline enable it by adding to the `.vimrc`:
 ```shell
 set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
 ```
- 
+
 This can be change **depending on the path to the `python` directory**
 
 ### .wgetrc
@@ -132,7 +132,7 @@ If you use wget, this adds additional settings such as changing the timeout to 6
 
 ## Getting Started
 
-If you notice, some files that have mentioned above don't exist in this repo. This is because i am using the amazing [bash-it](http://github.com/ahmadassaf/bash-it) repo to organize those dotfiles. 
+If you notice, some files that have mentioned above don't exist in this repo. This is because i am using the amazing [bash-it](http://github.com/ahmadassaf/bash-it) repo to organize those dotfiles.
 I recommend you head overthere and read how to use them.d
 
 ## Installing the Scripts
@@ -149,7 +149,7 @@ When setting up a new Mac, you may want to set some sensible OS X defaults:
 
 ### Install Homebrew formulae
 
-When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course). 
+When setting up a new Mac, you may want to install some common [Homebrew](http://brew.sh/) formulae (after installing Homebrew, of course).
 `brew bundle` has been deprecated, thus i converted the files into executable shell ones:
 
 ```bash
@@ -166,8 +166,8 @@ My file contains the following `brew` formulas:
 + **Git speific addons** git-extras, hub, bfg
 + **Utilities** htop-osx, id3tool, lesspipe, ssh-copy-id, the_silver_searcher, tree, fcrackzip, foremost, ack, p7zip, pigz, pv, gnu-sed, vim, wget
 + **Network tools** dns2tcp, knock, rename, webkit2png
-+ **[Dupes](https://github.com/Homebrew/homebrew-dupes)** grep, screen
-    
++ [**Dupes](https://github.com/Homebrew/homebrew-dupes)** grep, screen
+
 ### Install native apps with `brew cask`
 
 You could also install native apps with [`brew cask`](https://github.com/phinze/homebrew-cask):
@@ -182,18 +182,39 @@ My `cask` file contains the following applications:
 
 + **Utilities** path-finder, alfred, cakebrew, a-better-finder-rename, fastscripts, bettertouchtool, iterm2, launchrocket, gyazo, ubersicht, dockmod, liteicon, cleanmymac, bartender, flexiglass
 + **Productivity** todoist, evernote, mendeley-desktop, fantastical, slack, screenhero
-+ **Development** sublime-text3, atom, sourcetree, github, brackets, coda, tower, transmission-remote-gui, macvim, sqlite-database-browser, lightpaper, 
++ **Development** sublime-text3, atom, sourcetree, github, brackets, coda, tower, transmission-remote-gui, macvim, sqlite-database-browser, lightpaper,
 + codebox, anvil, hex-fiend, ksdiff, codekit, MAMP
 + **Internet, Networking** firefox, google-chrome, charles, dropbox, google-drive, mailbox, viber, utorrent, plex-media-server
 + **Misc** vlc, imagealpha, imageoptim, steam, the-unarchiver, spotify, handbrake
 + **Quick Look plugins** betterzipql, qlcolorcode, qlmarkdown, qlprettypatch, qlstephen, quicklook-csv, quicklook-json, quicknfo, suspicious-package, webp-quicklook
-+ **Color pickers** colorpicker-developer, colorpicker-skalacolo 
++ **Color pickers** colorpicker-developer, colorpicker-skalacolo
+
+### Install NPM Globals
+
+There are a bunch of useful Node.js command line tools that can be installed globally. For that, the file `.npm_globals.sh` define an array of those applications. My global npm packages are:
+
++ [**amok**](https://www.npmjs.com/package/amok): A free open source, editor agnostic, cross-platform command line tool for fast incremental development, testing and debugging in web browsers
++ [**bower**](https://www.npmjs.com/package/bower): Bower offers a generic, unopinionated solution to the problem of front-end package management, while exposing the package dependency model via an API that can be consumed by a more opinionated build stack
++ [**caniuse**](https://www.npmjs.com/package/caniuse): Compatibility validation for support of HTML5, CSS3, SVG and more in desktop and mobile browsers
++ [**eslint**](https://www.npmjs.com/package/eslint): ESLint is a tool for identifying and reporting on patterns found in ECMAScript/JavaScript code
++ [**grunt**](https://www.npmjs.com/package/grunt): The JavaScript Task Runner
++ [**imageoptim**](https://www.npmjs.com/package/imageoptim): Node.js wrapper for some images compression algorithms
++ [**jscs**](https://www.npmjs.com/package/jscs): JavaScript Code Style
++ [**mocha**](https://www.npmjs.com/package/mocha): Simple, flexible, fun test fr**amework
++ [**nodemon**](https://www.npmjs.com/package/nodemon): Nodemon will watch the files in the directory in which nodemon was started, and if any files change, nodemon will automatically restart your node application.
++ [**prettyjson**](https://www.npmjs.com/package/prettyjson): Package for formatting JSON data in a coloured YAML-style, perfect for CLI output
++ [**psi**](https://www.npmjs.com/package/psi): PageSpeed Insights with reporting
++ [**should**](https://www.npmjs.com/package/should): Should is an expressive, readable, framework-agnostic assertion library. The main goals of this library are to be expressive and to be helpful. It keeps your test code clean, and your error messages helpful.
++ [**slap**](https://www.npmjs.com/package/slap): Slap is a Sublime-like terminal-based text editor that strives to make editing from the terminal easier
++ [**sparkly**](https://www.npmjs.com/package/sparkly): Generate sparklines
++ [**tmi**](https://www.npmjs.com/package/tmi): Find out the image weight in your pages, compare to the BigQuery quantiles and discover what images you can optimize further
++ [**vtop**](https://www.npmjs.com/package/vtop): A graphical activity monitor for the command line
 
 ## References
 
 ### Tutorials
 
-* [Execution sequence for .bash_profile, .bashrc, .bash_login, .profile and .bash_logout](http://www.thegeekstuff.com/2008/10/execution-sequence-for-bash_profile-bashrc-bash_login-profile-and-bash_logout/) 
+* [Execution sequence for .bash_profile, .bashrc, .bash_login, .profile and .bash_logout](http://www.thegeekstuff.com/2008/10/execution-sequence-for-bash_profile-bashrc-bash_login-profile-and-bash_logout/)
 * [Setting Up a Mac Dev Machine From Zero to Hero With Dotfiles](http://code.tutsplus.com/tutorials/setting-up-a-mac-dev-machine-from-zero-to-hero-with-dotfiles--net-35449)
 
 ### Other `dotfiles` repositories
