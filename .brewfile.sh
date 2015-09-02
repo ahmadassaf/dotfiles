@@ -37,6 +37,7 @@ recipes=(
   node
   mercurial
   iojs
+  mongodb
   # Git speific addons
   git-extras
   hub
