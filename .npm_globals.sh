@@ -23,6 +23,8 @@ globals=(
   sparkly
   tmi
   vtop
+  bosco
+  speed-test
 )
 
 # Start the actual installation of the recipes
