@@ -50,9 +50,5 @@ export MANPATH=\"/usr/local/opt/coreutils/libexec/gnuman:\$MANPATH\"
 # Enabling dircolors coloring
 eval \`gdircolors -b ~/.dircolors\`" >> "${HOME}/.bash_it/lib/appearance.bash"
 
-		# Adding needed configurations to theme-and-appearance in oh-my-zsh
-		echo "Applying needed patched to ${red}theme-and-appearance.zsh${NC}"
-		echo "\n\n# Enabling dircolors coloring
-eval \`gdircolors -b ~/.dircolors\`" >> "${HOME}/.oh-my-zsh/lib/theme-and-appearance.zsh"
 	fi;
 fi
