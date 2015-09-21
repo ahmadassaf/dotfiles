@@ -16,13 +16,13 @@ function linkDotFiles() {
 	find $SOURCE_LOCATION -mindepth 1 -maxdepth 1 -name '.*'| while read file; do
 		if [[ $(basename $file) != ".git" && $(basename $file) != ".gitignore" ]]; then
   		if [[ -d ${HOME}/$(basename $file) ]]; then
-  			printf "${NC}$(basename $file)${NC} is a driectory, ${red}removing a directory now ..${NC}"
+  			printf "${NC}$(basename $file)${NC} is a driectory, ${red}removing a directory now ..\n${NC}"
   			rm -r "${HOME}/$(basename $file)"
   		else
-  			printf "${magenta}$(basename $file)${NC} is found, ${red}deleting and overwriting now!${NC}"
+  			printf "${magenta}$(basename $file)${NC} is found, ${red}deleting and overwriting now!\n${NC}"
   			rm "${HOME}/$(basename $file)"
 			fi
-		  printf "Linking ${magenta}$file${NC} to ${magenta}$TARGET_LOCATION/$(basename $file)${NC}"
+		  printf "Linking ${magenta}$file${NC} to ${magenta}$TARGET_LOCATION/$(basename $file)\n${NC}"
 	    ln -s "$file" "${HOME}/$(basename $file)"
 		fi
 	done
