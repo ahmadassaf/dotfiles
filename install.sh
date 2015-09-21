@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+# Colors and visual Configurations
+export magenta='\e[0;35m'
+export red='\e[0;31m'
+export NC='\e[0m'
+
 # Find the location of the script, this brings out the location of the current directory
 export SCRIPT_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
