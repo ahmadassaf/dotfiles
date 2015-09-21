@@ -1,0 +1,21 @@
+# Use shell-style glob syntax
+syntax: glob
+
+# Compiled Python files
+*.pyc
+
+# Files that might appear on external disks
+.Spotlight-V100
+.Trashes
+
+# OS generated files #
+######################
+.DS_Store?
+ehthumbs.db
+Icon?
+Thumbs.db
+._*
+Desktop.ini
+
+# from sublime text editor
+package.sublime-workspace
