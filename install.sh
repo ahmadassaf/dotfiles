@@ -41,14 +41,5 @@ if [[ ! -e ${HOME}/.dircolors ]]; then
 	echo "";
 	if [[ $REPLY =~ ^[Yy]$ ]]; then
 		ln -s "$SOURCE_LOCATION/dotfiles/dircolors/LS_COLORS" "${HOME}/.dircolors"
-
-		# Adding needed configurations to appearance.bash in bash-it
-		echo "Applying needed patched to ${red}appearance.bash${NC}"
-		echo "\n\n# Adding needed files for dircoloring
-export PATH=\"/usr/local/opt/coreutils/libexec/gnubin:\$PATH\"
-export MANPATH=\"/usr/local/opt/coreutils/libexec/gnuman:\$MANPATH\"
-# Enabling dircolors coloring
-eval \`gdircolors -b ~/.dircolors\`" >> "${HOME}/.bash_it/lib/appearance.bash"
-
 	fi;
 fi
