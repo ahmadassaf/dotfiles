@@ -7,23 +7,28 @@ function npm_install_globals() {
 
 globals=(
   amok
+  bosco
   bower
   caniuse
+  caniuse-cmd
   cli
   eslint
-  grunt
+  grunt-cli
   imageoptim
+  imageoptim-cli
   jscs
+  jshint
+  marked
   mocha
+  node-inspector
   nodemon
+  notes
   prettyjson
   psi
-  should
   slap
   sparkly
   tmi
   vtop
-  bosco
   speed-test
 )
 
