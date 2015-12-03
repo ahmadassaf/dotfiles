@@ -54,6 +54,7 @@ recipes=(
   pigz
   pv
   tmux
+  sshrc
 	# Network tools
 	dns2tcp
 	knock
