@@ -13,7 +13,6 @@ function linkDotFiles() {
 			fi
 		  echo "Linking ${magenta}$file${NC} to ${magenta}$TARGET_LOCATION/$(basename $file)${NC}"
 	    ln -s "$file" "${HOME}/$(basename $file)"
-	    ln -s "$file" "${HOME}/.sshrc.d/$(basename $file)"
 		fi
 	done
 }
