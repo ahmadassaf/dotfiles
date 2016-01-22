@@ -213,3 +213,7 @@ precomposeunicode = false
 	helper = osxkeychain
 [commit]
 	template = /Users/ahmadassaf/.git_commit_message.txt
+[filter "lfs"]
+	smudge = git-lfs smudge %f
+	required = true
+	clean = git-lfs clean %f
