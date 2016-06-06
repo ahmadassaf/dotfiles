@@ -1,8 +1,4 @@
-<<<<<<< HEAD
 Copyright Ahmad Assaf <https://ahmadassaf.com/>
-=======
-Copyright Mathias Bynens <https://mathiasbynens.be/>
->>>>>>> 6d4f94df9072221e7d3091d65a140ac2597975c6
 
 Permission is hereby granted, free of charge, to any person obtaining
 a copy of this software and associated documentation files (the
