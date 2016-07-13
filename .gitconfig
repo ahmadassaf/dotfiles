@@ -212,3 +212,5 @@ precomposeunicode = false
 	required = true
 [credential]
 	helper = osxkeychain
+[commit]
+	template = /Users/ahmadassaf/.git_commit_message.txt
