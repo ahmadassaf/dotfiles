@@ -12,6 +12,9 @@ export SCRIPT_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 export SOURCE_LOCATION="$SCRIPT_DIRECTORY" # Contains the files and directories I want to work with.
 
 function linkDotFiles() {
+
+    echo "Linking required dotfiles ...";
+
 	# Link the files from source to the target with a dot appended to the front.
 	find $SOURCE_LOCATION/dotfiles -mindepth 1 -maxdepth 1 -name '.*'| while read file; do
 		if [[ $(basename $file) != ".git" && $(basename $file) != ".gitignore" ]]; then
@@ -21,10 +24,9 @@ function linkDotFiles() {
       		elif [[ -f ${HOME}/$(basename $file) ]]; then
       			echo "${magenta}$(basename $file)${NC} is found, ${red}deleting and overwriting now!${NC}"
       			rm "${HOME}/$(basename $file)"
-    		else
-    		  echo "Linking ${magenta}$file${NC} to ${magenta}$TARGET_LOCATION/$(basename $file)${NC}"
-    	       ln -s "$file" "${HOME}/$(basename $file)"
     		fi
+		    echo "Linking ${magenta}$file${NC} to ${magenta}$TARGET_LOCATION/$(basename $file)${NC}"
+	        ln -s "$file" "${HOME}/$(basename $file)"
         fi
 	done
 }
