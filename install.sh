@@ -43,10 +43,10 @@ if [[ ! -e ${HOME}/.dircolors ]]; then
 	read -p "This will enable dircolors. Are you sure? [Y/N]" -n 1;
 	printf "";
 	if [[ $REPLY =~ ^[Yy]$ ]]; then
-        if [[ -d ${HOME}/.dircolors ]]; then
-          echo "dircolors installation dirctory found, skipping .."
-        else
-            ln -s "$SOURCE_LOCATION/dotfiles/dircolors/LS_COLORS" "${HOME}/.dircolors"
+        if [[ -f "${HOME}/.dircolors" ]]; then
+          echo "dircolors installation dirctory found, removing and linking again ..";
+          rm "${HOME}/.dircolors"
         fi
+        ln -s "$SOURCE_LOCATION/dircolors/LS_COLORS" "${HOME}/.dircolors"
 	fi;
 fi
