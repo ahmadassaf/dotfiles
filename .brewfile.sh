@@ -34,9 +34,7 @@ recipes=(
   # Development
   git
   heroku
-  node
   mercurial
-  iojs
   mongodb
   # Git speific addons
   git-extras
@@ -56,6 +54,7 @@ recipes=(
   pigz
   pv
   tmux
+  sshrc
 	# Network tools
 	dns2tcp
 	knock
