@@ -1,5 +1,3 @@
-<<<<<<< HEAD
-<<<<<<< HEAD
 #!/usr/bin/env bash
 
 # Path to the bash it configuration
@@ -31,6 +29,3 @@ export SCM_CHECK=true
 # Load Bash It
 source $BASH_IT/bash_it.sh
 [ -n "$PS1" ] && source ~/.bash_profile;
-=======
-[ -n "$PS1" ] && source ~/.bash_profile;
->>>>>>> master
