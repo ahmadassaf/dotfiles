@@ -30,6 +30,7 @@ globals=(
   tmi
   vtop
   speed-test
+  pm2
 )
 
 # Start the actual installation of the recipes
