@@ -1,10 +1,5 @@
 #!/usr/bin/env bash
 
-# Colors and visual Configurations
-export magenta='\e[0;35m'
-export red='\e[0;31m'
-export NC='\e[0m'
-
 # Find the location of the script, this brings out the location of the current directory
 export SCRIPT_DIRECTORY="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -19,13 +14,13 @@ function linkDotFiles() {
 	find $SOURCE_LOCATION -mindepth 1 -maxdepth 1 -name '.*'| while read file; do
 		if [[ $(basename $file) != ".git" && $(basename $file) != ".gitignore" ]]; then
       		if [[ -d ${HOME}/$(basename $file) ]]; then
-      			echo "${NC}$(basename $file)${NC} is a driectory, ${red}removing a directory now ..${NC}"
+      			echo "$(basename $file) is a driectory, removing a directory now .."
       			rm -r "${HOME}/$(basename $file)"
       		elif [[ -f ${HOME}/$(basename $file) ]]; then
-      			echo "${magenta}$(basename $file)${NC} is found, ${red}deleting and overwriting now!${NC}"
+      			echo "$(basename $file) is found, deleting and overwriting now!"
       			rm "${HOME}/$(basename $file)"
     		fi
-		    echo "Linking ${magenta}$file${NC} to ${magenta}$TARGET_LOCATION/$(basename $file)${NC}"
+		    echo "Linking $file to $TARGET_LOCATION/$(basename $file)"
 	        ln -s "$file" "${HOME}/$(basename $file)"
         fi
 	done
@@ -44,7 +39,7 @@ unset linkDotFiles;
 
 if [[ ! -e ${HOME}/.dircolors ]]; then
 	# Prompt the user if he wishes to have dircolors enabled
-	printf "${magenta}\nDircolors${NC} helps applying different colors for file groups when executing ${red}ls${NC}\n"
+	printf "\nDircolors helps applying different colors for file groups when executing ls\n"
 	read -p "This will enable dircolors. Are you sure? [Y/N]" -n 1;
 	printf "";
 	if [[ $REPLY =~ ^[Yy]$ ]]; then
