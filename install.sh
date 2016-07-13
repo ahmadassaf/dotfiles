@@ -37,16 +37,14 @@ else
 fi;
 unset linkDotFiles;
 
-if [[ ! -e ${HOME}/.dircolors ]]; then
-	# Prompt the user if he wishes to have dircolors enabled
-	printf "\nDircolors helps applying different colors for file groups when executing ls\n"
-	read -p "This will enable dircolors. Are you sure? [Y/N]" -n 1;
-	printf "";
-	if [[ $REPLY =~ ^[Yy]$ ]]; then
-        if [[ -f "${HOME}/.dircolors" ]]; then
-          echo "dircolors installation dirctory found, removing and linking again ..";
-          rm "${HOME}/.dircolors"
-        fi
-        ln -s "$SOURCE_LOCATION/dircolors/LS_COLORS" "${HOME}/.dircolors"
-	fi;
-fi
+# Prompt the user if he wishes to have dircolors enabled
+printf "\nDircolors helps applying different colors for file groups when executing ls\n"
+read -p "This will enable dircolors. Are you sure? [Y/N]" -n 1;
+printf "";
+if [[ $REPLY =~ ^[Yy]$ ]]; then
+    if [[ -f "${HOME}/.dircolors" ]]; then
+      echo "dircolors installation dirctory found, removing and linking again ..";
+      rm "${HOME}/.dircolors"
+    fi
+    ln -s "$SOURCE_LOCATION/dircolors/LS_COLORS" "${HOME}/.dircolors"
+fi;
