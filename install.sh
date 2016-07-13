@@ -4,16 +4,17 @@ function linkDotFiles() {
 	# Link the files from source to the target with a dot appended to the front.
 	find $SOURCE_LOCATION/dotfiles -mindepth 1 -maxdepth 1 -name '.*'| while read file; do
 		if [[ $(basename $file) != ".git" && $(basename $file) != ".gitignore" ]]; then
-  		if [[ -d ${HOME}/$(basename $file) ]]; then
-  			echo "${NC}$(basename $file)${NC} is a driectory, ${red}removing a directory now ..${NC}"
-  			rm -r "${HOME}/$(basename $file)"
-  		else
-  			echo "${magenta}$(basename $file)${NC} is found, ${red}deleting and overwriting now!${NC}"
-  			rm "${HOME}/$(basename $file)"
-			fi
-		  echo "Linking ${magenta}$file${NC} to ${magenta}$TARGET_LOCATION/$(basename $file)${NC}"
-	    ln -s "$file" "${HOME}/$(basename $file)"
-		fi
+      		if [[ -d ${HOME}/$(basename $file) ]]; then
+      			echo "${NC}$(basename $file)${NC} is a driectory, ${red}removing a directory now ..${NC}"
+      			rm -r "${HOME}/$(basename $file)"
+      		elif [[ -f ${HOME}/$(basename $file) ]]; then
+      			echo "${magenta}$(basename $file)${NC} is found, ${red}deleting and overwriting now!${NC}"
+      			rm "${HOME}/$(basename $file)"
+    		else
+    		  echo "Linking ${magenta}$file${NC} to ${magenta}$TARGET_LOCATION/$(basename $file)${NC}"
+    	       ln -s "$file" "${HOME}/$(basename $file)"
+    		fi
+        fi
 	done
 }
 
