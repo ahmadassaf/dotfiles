@@ -168,7 +168,7 @@ My file contains the following `brew` formulas:
 + **Git speific addons** git-extras, hub, bfg
 + **Utilities** htop-osx, id3tool, lesspipe, ssh-copy-id, the_silver_searcher, tree, fcrackzip, foremost, ack, p7zip, pigz, pv, gnu-sed, vim, wget
 + **Network tools** dns2tcp, knock, rename, webkit2png
-+ [**Dupes](https://github.com/Homebrew/homebrew-dupes)** grep, screen
++ [**Dupes**](https://github.com/Homebrew/homebrew-dupes) grep, screen
 
 ### Install native apps with `brew cask`
 
