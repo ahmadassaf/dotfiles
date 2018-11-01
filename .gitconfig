@@ -106,6 +106,7 @@ precomposeunicode = false
 	# http://michael-kuehnel.de/git/2014/11/21/git-mac-osx-and-german-umlaute.html
 	precomposeunicode = false
 	editor = "sublime --wait"
+	ignorecase = false
 
 [color]
 
@@ -190,6 +191,8 @@ precomposeunicode = false
 [user]
 	name = Ahmad Assaf
 	email = ahmad.a.assaf@gmail.com
+	username = ahmadassaf
+	token = c66c50b8fb773f5c5a9e615c9496ecdd17dab829
 [difftool "Kaleidoscope"]
 	cmd = ksdiff --partial-changeset --relative-path \"$MERGED\" -- \"$LOCAL\" \"$REMOTE\"
 	prompt = false
@@ -220,6 +223,20 @@ precomposeunicode = false
 [commit]
 	template = /Users/ahmadassaf/.git_commit_message.txt
 [filter "lfs"]
-	smudge = git-lfs smudge %f
+	process = git-lfs filter-process
 	required = true
-	clean = git-lfs clean %f
+	clean = git-lfs clean -- %f
+	smudge = git-lfs smudge -- %f
+[gitflow]
+[gitflow]
+	develop = master
+[hub "issue"]
+[hub "issue"]
+[hub "issue"]
+[hub "issue"]
+[hub "issue"]
+	url = github.com/SeedJobs/project_CRM/issues/113
+	title = Fix contacts with `https://www.linkedin.com/profile/view` as Social Link
+	owner = SeedJobs
+	repo = project_CRM
+	number = 113

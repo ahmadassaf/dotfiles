@@ -1,8 +1,11 @@
 ## What are Dotfiles?
 
-If you're not familiar with the concept of dotfiles, check out Github's dotfiles page to learn more about them. Essentially, when someone says "dotfiles" they mean maintaining your command-line preferences in a Git repository (sort of like how I use Dropbox to manage my preference files for TextExpander, etc.) that you install on every computer.
+ 
+Dotfiles are plain text configuration files on Unix-y systems for things like our shell or our editor. If you're not familiar with the concept of dotfiles, check out [Github's dotfiles page](https://dotfiles.github.io/) to learn more about them.
 
-The name dotfiles refers to the fact that most of the files that perform this sort of configuration start with a dot. The Zsh configuration file, for example, is `.zshrc` The SSH configuration folder is `.ssh` And so on. So the concept of "dotfiles" just means "versioning your configuration files."
+The name dotfiles refers to the fact that most of the files that perform this sort of configuration start with a dot. The dot or ‘.’ in front of the file means that it is actually a hidden file on the system, although this is not a strict requirement. The Zsh configuration file, for example, is `.zshrc` The SSH configuration folder is `.ssh` And so on. So the concept of "dotfiles" just means "versioning your configuration files".
+
+> to actually see these files, you either have to enable the ability to view those hidden files (if you are using a gui file viewer) or you have to use a specific flag (-a) on the command line with ls
 
 Your dotfiles will help you create powerful and consistent shell shortcuts and functions, settings for your editors, color coding and layouts for your shell, preferences and authentication for ssh and mysql and other protocols, and more.
 
@@ -10,127 +13,46 @@ Your dotfiles will help you create powerful and consistent shell shortcuts and f
 
 ## Superhero Dotfiles and Their Super Powers
 
-Dotfiles are split into two main types. Those that contain a set of commands and only run once, .osx for example runs a list of commands and gives OS X super powers. Other files such as .bash_profile and .bashrc run each time you open a new Terminal session and gives your Terminal super powers.
+Dotfiles are split into two main types. Those that contain a set of commands and only run once, `.osx` for example runs a list of commands and gives OS X super powers. Other files such as `.bash_profile` and `.bashrc` run each time you open a new Terminal session and gives your Terminal super powers.
 
-Here's a run down of the dotfiles in my repo and a description of what they can do.
+Here's a run down of some of the most popular and a description of what they can do:
 
-### .bash_profile / .bashrc
+ - `.bash_profile` / `.bashrc`: When you open a new Terminal session, this file is loaded by Bash. It loads in the other dotfiles `path,bash_prompt,exports,aliases,functions,extra` and configures some useful settings such as auto correcting typos when using cd completion.
+In some instances `.bashrc` can be loaded, so this file makes sure that `.bash_profile` is called.
+ - `.path`: This file speeds up the process of running executable files. Rather than having to cd back and forth across various paths to executable files, you can set the file paths in your `.path` dotilfe and then run executable files directly.
+ > Generally, this file isn't held in the public repo as it can contain sensitive information.
+ Here’s an example `~/.path` file that adds `~/utils` to the `$PATH:
+ ```
+ export PATH="$HOME/utils:$PATH"
+ ```
 
-When you open a new Terminal session, this file is loaded by Bash. It loads in the other dotfiles `path,bash_prompt,exports,aliases,functions,extra` and configures some useful settings such as auto correcting typos when using cd completion.
+ - `.bash_prompt`: Using this file you can customise and set the various colors of your Bash prompt.
+ - `.exports`: Sets environment variables, such as setting Vim as the default editor using export `EDITOR="sublime"` It also increases the amount of history saved, useful for backtracking over previous commands you've used.
+ - `.aliases`: This file contains useful aliases to help you write less. For example, instead of typing `cd ..` you can set it here to be '..'. Starting to like these files yet?
+ - `.functions`: Similar to aliases, except functions can take arguments. Before when I mentioned I was looking over different dotfile repos, I did mkdir to create a directory. After that, I'd then need to cd into that directory.
+ - `.gitconfig`: This file is only used by Git, for example, when a git command is invoked. So although there's an `.aliases` file, those aliases are run directly.
+ - `.gitignore`: Set files that you'd like Git to ignore on the entire system. Yay, no more `.DS_Store` being accidentally committed!
+ - `.gvimrc`: A small file that improves readability for gvim.
+ - `.hgignore`: Simliar to .gitignore for Mercurial.
+ - `.hushlogin`: Usually when you connect to a server remotely, via ssh, you'll be shown the "message of the day", the last time you logged in to the machine, and other details. Here's a simple way to disable that behaviour. By default the display of the message of the day is read from the file `/etc/motd`. The obvious way to disable this behaviour is to remove this from the relevant PAM file(s). However doing this will remove the behaviour from all users of the machine - which might not be appreciated. Similarily, when you launch a new Terminal window or tab in Mac OS X (and most linux distributions) you’ll be greeted with a little message which is often a “last login” details. Having the `.hushlogin` file silent any messages. 
+ > If you have configured your terminal to open a new tab with "Same Working Directory" enabled, the current directory is searched for `.hushlogin`. Unless you put a `.hushlogin` in every single directory, it will only see `~/.hushlogin` if you open a new tab when you're in `~`. This is in direct conflict with the feature of preserving the current working directory. 
+ - `.inputrc`: Configures the 'Readline environment'. This controls the way keys work when you're entering a command into your shell. An example of how I find this useful is to make tab autocomplete regardless of filename case `set completion-ignore-case on`
+ - `.osx`: This is my favorite of all the dotfiles. It is run once, manually, for the commands to run and take effect. Depending on what you've added to this file, you may need to restart your machine.
+    
+    Some of the awesome things I love are:
 
-In some instances `.bashrc` can be loaded, so this file makes sure that .bash_profile is called.
+    - Disable the “Are you sure you want to open this application?” dialog
+    - Check for software updates daily, not just once per week
+    - Disable Notification Center and remove the menu bar icon
+    - Enable access for assistive devices
+    - Set a blazingly fast keyboard repeat rate
+    - Finder: allow quitting via `⌘ + Q` doing so will also hide desktop icons
+    - When performing a search, search the current folder by default
+    - Speed up Mission Control animations
 
-### .path
-
-This file speeds up the process of running executable files. Rather than having to cd back and forth across various paths to executable files, you can set the file paths in your .path dotilfe and then run executable files directly.
-
-Generally, this file isn't held in the public repo as it can contain sensitive information.
-
-Here’s an example `~/.path` file that adds `~/utils` to the `$PATH:
-export PATH="$HOME/utils:$PATH"``
-
-### .bash_prompt
-
-Using this file you can customise and set the various colors of your Bash prompt.
-
-### .exports
-
-Sets environment variables, such as setting Vim as the default editor using export `EDITOR="sublime"` It also increases the amount of history saved, useful for backtracking over previous commands you've used.
-
-### .aliases
-
-This file contains useful aliases to help you write less. For example, instead of typing `cd ..` you can set it here to be '..'. Starting to like these files yet?
-
-### .functions
-
-Similar to aliases, except functions can take arguments.
-
-Before when I mentioned I was looking over different dotfile repos, I did mkdir to create a directory. After that, I'd then need to cd into that directory.
-
-### .gitconfig
-
-This file is only used by Git, for example, when a git command is invoked. So although there's an `.aliases` file, those aliases are run directly.
-
-### .gitignore
-
-Set files that you'd like Git to ignore on the entire system. Yay, no more `.DS_Store` being accidentally committed!
-
-### .gvimrc
-
-A small file that improves readability for gvim.
-
-### .hgignore
-
-Simliar to .gitignore for Mercurial.
-
-### .hushlogin
-
-In some instances, for example, when you ssh into a machine, you may be presented with a message. It might look something like this:
-
-```                                   _
-                                  | |
- _ __ ___  _   _    ___ ___   ___ | |  ___  ___ _ ____   _____ _ __
-| '_ ` _ \| | | |  / __/ _ \ / _ \| | / __|/ _ \ '__\ \ / / _ \ '__|
-| | | | | | |_| | | (_| (_) | (_) | | \__ \  __/ |   \ V /  __/ |
-|_| |_| |_|\__, |  \___\___/ \___/|_| |___/\___|_|    \_/ \___|_|
-            __/ |
-           |___/
-Welcome to my cool server.
-Any malicious and/or unauthorized activity is strictly forbidden.
-All activity may be logged.
-```
-
-This file prevents this from being shown.
-
-### .inputrc
-
-Configures the 'Readline environment'. This controls the way keys work when you're entering a command into your shell.
-An example of how I find this useful is to make tab autocomplete regardless of filename case:
-
-`set completion-ignore-case on`
-
-### .osx
-
-This is my favorite of all the dotfiles. It is run once, manually, for the commands to run and take effect. Depending on what you've added to this file, you may need to restart your machine.
-
-Some of the awesome things I love are:
-
-- Disable the “Are you sure you want to open this application?” dialog
-- Check for software updates daily, not just once per week
-- Disable Notification Center and remove the menu bar icon
-- Enable access for assistive devices
-- Set a blazingly fast keyboard repeat rate
-- Finder: allow quitting via `⌘ + Q` doing so will also hide desktop icons
-- When performing a search, search the current folder by default
-- Speed up Mission Control animations
-
-### .screenrc
-
-If you use screen, this removes the startup message.
-
-### .vimrc
-
-I'm not that familiar with vim. However some of the things you can do with this file include enabling line numbers and adding syntax highlighting.
-
-For `vim` i have also included the [powerline](https://github.com/Lokaltog/powerline) visual styling which will include a status line.
-
-**Important Notes**
-
-- I haven't included `powerline` in my main installation script, so if you wish to have it, then please proceed with installing it separately with the fonts dependency.
-- The `--user` parameter should be removed if you got an error while installation especially if you have python installed via Homebrew.
-- A dependency is the [powerline fonts](https://github.com/ahmadassaf/powerline-fonts) pack. Installation instructions can be found directly in the repository.
-
-after installing powerline enable it by adding to the `.vimrc`:
-
-```shell
-set rtp+=/usr/local/lib/python2.7/site-packages/powerline/bindings/vim
-```
-
-This can be change **depending on the path to the `python` directory**
-
-### .wgetrc
-
-If you use wget, this adds additional settings such as changing the timeout to 60 seconds rather than the default 15 minutes. It also sets the retry to three, rather than the default 20!
+ - `.screenrc`: If you use screen, this removes the startup message.
+ - `.vimrc`: I'm not that familiar with vim. However some of the things you can do with this file include enabling line numbers and adding syntax highlighting. For `vim` i have also included the [powerline](https://github.com/Lokaltog/powerline) visual styling which will include a status line.
+ - `.wgetrc`: If you use wget, this adds additional settings such as changing the timeout to 60 seconds rather than the default 15 minutes. It also sets the retry to three, rather than the default 20!
 
 ## Getting Started
 
